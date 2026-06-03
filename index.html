@@ -1,0 +1,1651 @@
+     1	<!DOCTYPE html>
+     2	<html lang="ko">
+     3	<head>
+     4	    <meta charset="UTF-8">
+     5	    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6	    <meta name="description" content="Amanut - 문화 전략 컨설팅 기관 | 정책·전략·실행을 연결하여 지속 가능한 문화 생태계를 구축합니다">
+     7	    <title>Amanut | Cultural Strategy Consultancy</title>
+     8	    
+     9	    <!-- Fonts -->
+    10	    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    11	    
+    12	    <!-- Font Awesome -->
+    13	    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
+    14	    
+    15	    <style>
+    16	/* ========================================
+    17	   정선(正善) 문화전략연구소
+    18	   Main Stylesheet - Embedded
+    19	   ======================================== */
+    20	
+    21	/* Reset & Base Styles */
+    22	* {
+    23	    margin: 0;
+    24	    padding: 0;
+    25	    box-sizing: border-box;
+    26	}
+    27	
+    28	:root {
+    29	    /* Colors */
+    30	    --primary-color: #1e3a5f;
+    31	    --secondary-color: #c9a961;
+    32	    --accent-color: #4a90e2;
+    33	    --dark-navy: #1a2332;
+    34	    --light-bg: #f5f7fa;
+    35	    --white: #ffffff;
+    36	    --text-dark: #2c3e50;
+    37	    --text-light: #6c757d;
+    38	    --border-color: #dee2e6;
+    39	    --gradient-overlay: linear-gradient(135deg, rgba(30, 58, 95, 0.95), rgba(74, 144, 226, 0.9));
+    40	    
+    41	    /* Typography */
+    42	    --font-primary: 'Noto Sans KR', sans-serif;
+    43	    --font-secondary: 'Inter', sans-serif;
+    44	    
+    45	    /* Spacing */
+    46	    --section-padding: 80px 0;
+    47	    --container-padding: 0 20px;
+    48	    
+    49	    /* Transitions */
+    50	    --transition-smooth: all 0.3s ease;
+    51	    --transition-fast: all 0.2s ease;
+    52	}
+    53	
+    54	body {
+    55	    font-family: var(--font-primary);
+    56	    color: var(--text-dark);
+    57	    line-height: 1.6;
+    58	    overflow-x: hidden;
+    59	}
+    60	
+    61	.container {
+    62	    max-width: 1200px;
+    63	    margin: 0 auto;
+    64	    padding: var(--container-padding);
+    65	}
+    66	
+    67	a {
+    68	    text-decoration: none;
+    69	    color: inherit;
+    70	    transition: var(--transition-smooth);
+    71	}
+    72	
+    73	img {
+    74	    max-width: 100%;
+    75	    height: auto;
+    76	    display: block;
+    77	}
+    78	
+    79	.section {
+    80	    padding: var(--section-padding);
+    81	}
+    82	
+    83	.section-header {
+    84	    text-align: center;
+    85	    margin-bottom: 60px;
+    86	}
+    87	
+    88	.section-subtitle {
+    89	    font-family: var(--font-secondary);
+    90	    font-size: 0.9rem;
+    91	    text-transform: uppercase;
+    92	    letter-spacing: 2px;
+    93	    color: var(--accent-color);
+    94	    margin-bottom: 10px;
+    95	}
+    96	
+    97	.section-title {
+    98	    font-size: 2.5rem;
+    99	    font-weight: 700;
+   100	    color: var(--primary-color);
+   101	    line-height: 1.2;
+   102	}
+   103	
+   104	.section-title .highlight {
+   105	    color: var(--accent-color);
+   106	}
+   107	
+   108	/* Navigation */
+   109	.navbar {
+   110	    position: fixed;
+   111	    top: 0;
+   112	    left: 0;
+   113	    width: 100%;
+   114	    background: rgba(26, 35, 50, 0.95);
+   115	    backdrop-filter: blur(10px);
+   116	    padding: 20px 0;
+   117	    z-index: 1000;
+   118	    transition: var(--transition-smooth);
+   119	}
+   120	
+   121	.navbar.scrolled {
+   122	    padding: 15px 0;
+   123	    box-shadow: 0 2px 20px rgba(0,0,0,0.1);
+   124	}
+   125	
+   126	.nav-wrapper {
+   127	    display: flex;
+   128	    justify-content: space-between;
+   129	    align-items: center;
+   130	}
+   131	
+   132	.logo {
+   133	    font-size: 1.5rem;
+   134	    font-weight: 700;
+   135	    color: var(--white);
+   136	}
+   137	
+   138	.logo-img {
+   139	    height: 40px;
+   140	    width: auto;
+   141	}
+   142	
+   143	.nav-menu {
+   144	    display: flex;
+   145	    list-style: none;
+   146	    gap: 40px;
+   147	}
+   148	
+   149	.nav-link {
+   150	    color: var(--white);
+   151	    font-weight: 500;
+   152	    padding: 8px 0;
+   153	    position: relative;
+   154	}
+   155	
+   156	.nav-link::after {
+   157	    content: '';
+   158	    position: absolute;
+   159	    bottom: 0;
+   160	    left: 0;
+   161	    width: 0;
+   162	    height: 2px;
+   163	    background: var(--secondary-color);
+   164	    transition: var(--transition-smooth);
+   165	}
+   166	
+   167	.nav-link:hover::after,
+   168	.nav-link.active::after {
+   169	    width: 100%;
+   170	}
+   171	
+   172	.mobile-toggle {
+   173	    display: none;
+   174	    flex-direction: column;
+   175	    gap: 5px;
+   176	    background: none;
+   177	    border: none;
+   178	    cursor: pointer;
+   179	}
+   180	
+   181	.mobile-toggle span {
+   182	    width: 25px;
+   183	    height: 3px;
+   184	    background: var(--white);
+   185	    transition: var(--transition-smooth);
+   186	}
+   187	
+   188	/* Hero Section */
+   189	.hero-section {
+   190	    min-height: 100vh;
+   191	    display: flex;
+   192	    align-items: center;
+   193	    justify-content: center;
+   194	    position: relative;
+   195	    background: var(--gradient-overlay);
+   196	    padding-top: 80px;
+   197	}
+   198	
+   199	.hero-overlay {
+   200	    position: absolute;
+   201	    top: 0;
+   202	    left: 0;
+   203	    width: 100%;
+   204	    height: 100%;
+   205	    background: var(--gradient-overlay);
+   206	    z-index: 1;
+   207	}
+   208	
+   209	.hero-content {
+   210	    position: relative;
+   211	    z-index: 2;
+   212	    text-align: center;
+   213	    color: var(--white);
+   214	    padding: 40px 0;
+   215	}
+   216	
+   217	.hero-title {
+   218	    font-size: 4rem;
+   219	    font-weight: 700;
+   220	    margin-bottom: 20px;
+   221	    animation: fadeInUp 1s ease;
+   222	}
+   223	
+   224	.title-large {
+   225	    display: block;
+   226	    font-size: 5rem;
+   227	}
+   228	
+   229	.hero-meaning {
+   230	    font-size: 1.2rem;
+   231	    margin-bottom: 30px;
+   232	    opacity: 0.9;
+   233	}
+   234	
+   235	.hero-description {
+   236	    font-size: 1.3rem;
+   237	    line-height: 1.8;
+   238	    margin-bottom: 50px;
+   239	    max-width: 800px;
+   240	    margin-left: auto;
+   241	    margin-right: auto;
+   242	}
+   243	
+   244	.hero-buttons {
+   245	    display: flex;
+   246	    gap: 20px;
+   247	    justify-content: center;
+   248	    flex-wrap: wrap;
+   249	}
+   250	
+   251	.btn {
+   252	    padding: 15px 40px;
+   253	    font-size: 1rem;
+   254	    font-weight: 600;
+   255	    border-radius: 50px;
+   256	    transition: var(--transition-smooth);
+   257	    display: inline-block;
+   258	    cursor: pointer;
+   259	    border: 2px solid transparent;
+   260	}
+   261	
+   262	.btn-primary {
+   263	    background: var(--secondary-color);
+   264	    color: var(--white);
+   265	}
+   266	
+   267	.btn-primary:hover {
+   268	    background: #b89851;
+   269	    transform: translateY(-2px);
+   270	    box-shadow: 0 5px 20px rgba(201, 169, 97, 0.4);
+   271	}
+   272	
+   273	.btn-outline {
+   274	    border: 2px solid var(--white);
+   275	    color: var(--white);
+   276	}
+   277	
+   278	.btn-outline:hover {
+   279	    background: var(--white);
+   280	    color: var(--primary-color);
+   281	}
+   282	
+   283	.scroll-indicator {
+   284	    position: absolute;
+   285	    bottom: 30px;
+   286	    left: 50%;
+   287	    transform: translateX(-50%);
+   288	    text-align: center;
+   289	    color: var(--white);
+   290	    animation: bounce 2s infinite;
+   291	}
+   292	
+   293	.scroll-indicator span {
+   294	    display: block;
+   295	    margin-bottom: 10px;
+   296	    font-size: 0.9rem;
+   297	}
+   298	
+   299	/* About Section */
+   300	.about-section {
+   301	    background: var(--white);
+   302	}
+   303	
+   304	.about-content {
+   305	    max-width: 1000px;
+   306	    margin: 0 auto;
+   307	}
+   308	
+   309	.about-main-tagline {
+   310	    font-size: 1.4rem;
+   311	    line-height: 1.8;
+   312	    color: var(--text-dark);
+   313	    text-align: center;
+   314	    margin-bottom: 60px;
+   315	    font-weight: 500;
+   316	}
+   317	
+   318	.about-values {
+   319	    display: grid;
+   320	    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+   321	    gap: 40px;
+   322	}
+   323	
+   324	.value-box {
+   325	    background: var(--light-bg);
+   326	    padding: 40px;
+   327	    border-radius: 15px;
+   328	    text-align: center;
+   329	    transition: var(--transition-smooth);
+   330	}
+   331	
+   332	.value-box:hover {
+   333	    transform: translateY(-10px);
+   334	    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+   335	}
+   336	
+   337	.value-icon {
+   338	    width: 80px;
+   339	    height: 80px;
+   340	    margin: 0 auto 25px;
+   341	    background: var(--accent-color);
+   342	    border-radius: 50%;
+   343	    display: flex;
+   344	    align-items: center;
+   345	    justify-content: center;
+   346	    color: var(--white);
+   347	    font-size: 2rem;
+   348	}
+   349	
+   350	.value-box h3 {
+   351	    font-size: 1.3rem;
+   352	    margin-bottom: 15px;
+   353	    color: var(--primary-color);
+   354	}
+   355	
+   356	.value-box p {
+   357	    color: var(--text-light);
+   358	    line-height: 1.8;
+   359	}
+   360	
+   361	/* Business Section */
+   362	.business-section {
+   363	    background: var(--light-bg);
+   364	}
+   365	
+   366	.business-list {
+   367	    display: flex;
+   368	    flex-direction: column;
+   369	    gap: 30px;
+   370	}
+   371	
+   372	.business-item {
+   373	    background: var(--white);
+   374	    border-radius: 15px;
+   375	    padding: 40px;
+   376	    display: flex;
+   377	    gap: 30px;
+   378	    align-items: flex-start;
+   379	    transition: var(--transition-smooth);
+   380	    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+   381	}
+   382	
+   383	.business-item:hover {
+   384	    transform: translateX(10px);
+   385	    box-shadow: 0 5px 25px rgba(0,0,0,0.1);
+   386	}
+   387	
+   388	.business-number {
+   389	    font-size: 3rem;
+   390	    font-weight: 700;
+   391	    color: var(--accent-color);
+   392	    opacity: 0.3;
+   393	    min-width: 80px;
+   394	}
+   395	
+   396	.business-content {
+   397	    flex: 1;
+   398	}
+   399	
+   400	.business-icon {
+   401	    width: 60px;
+   402	    height: 60px;
+   403	    background: var(--accent-color);
+   404	    border-radius: 12px;
+   405	    display: flex;
+   406	    align-items: center;
+   407	    justify-content: center;
+   408	    color: var(--white);
+   409	    font-size: 1.5rem;
+   410	    margin-bottom: 20px;
+   411	}
+   412	
+   413	.business-content h3 {
+   414	    font-size: 1.5rem;
+   415	    color: var(--primary-color);
+   416	    margin-bottom: 10px;
+   417	}
+   418	
+   419	.business-subtitle {
+   420	    font-size: 1.1rem;
+   421	    color: var(--text-light);
+   422	    margin-bottom: 20px;
+   423	}
+   424	
+   425	.business-details {
+   426	    list-style: none;
+   427	    padding-left: 0;
+   428	}
+   429	
+   430	.business-details li {
+   431	    padding: 8px 0 8px 25px;
+   432	    position: relative;
+   433	    color: var(--text-light);
+   434	}
+   435	
+   436	.business-details li::before {
+   437	    content: '▸';
+   438	    position: absolute;
+   439	    left: 0;
+   440	    color: var(--secondary-color);
+   441	    font-weight: bold;
+   442	}
+   443	
+   444	/* Activities Section */
+   445	.activities-section {
+   446	    background: var(--white);
+   447	}
+   448	
+   449	.activities-grid {
+   450	    display: grid;
+   451	    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+   452	    gap: 30px;
+   453	}
+   454	
+   455	.activity-card {
+   456	    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+   457	    border-radius: 15px;
+   458	    padding: 40px;
+   459	    color: var(--white);
+   460	    position: relative;
+   461	    overflow: hidden;
+   462	    cursor: pointer;
+   463	    transition: var(--transition-smooth);
+   464	}
+   465	
+   466	.activity-card::before {
+   467	    content: '';
+   468	    position: absolute;
+   469	    top: -50%;
+   470	    right: -50%;
+   471	    width: 200%;
+   472	    height: 200%;
+   473	    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+   474	    opacity: 0;
+   475	    transition: var(--transition-smooth);
+   476	}
+   477	
+   478	.activity-card:hover::before {
+   479	    opacity: 1;
+   480	}
+   481	
+   482	.activity-card:hover {
+   483	    transform: translateY(-10px);
+   484	    box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+   485	}
+   486	
+   487	.activity-number {
+   488	    font-size: 4rem;
+   489	    font-weight: 700;
+   490	    opacity: 0.2;
+   491	    position: absolute;
+   492	    top: 20px;
+   493	    right: 20px;
+   494	}
+   495	
+   496	.activity-icon {
+   497	    width: 70px;
+   498	    height: 70px;
+   499	    background: rgba(255,255,255,0.2);
+   500	    border-radius: 50%;
+   501	    display: flex;
+   502	    align-items: center;
+   503	    justify-content: center;
+   504	    font-size: 2rem;
+   505	    margin-bottom: 25px;
+   506	}
+   507	
+   508	.activity-card h3 {
+   509	    font-size: 1.5rem;
+   510	    margin-bottom: 10px;
+   511	    line-height: 1.4;
+   512	}
+   513	
+   514	.activity-subtitle {
+   515	    font-size: 0.9rem;
+   516	    opacity: 0.8;
+   517	    margin-bottom: 25px;
+   518	    font-family: var(--font-secondary);
+   519	    text-transform: uppercase;
+   520	    letter-spacing: 1px;
+   521	}
+   522	
+   523	.btn-view-activities {
+   524	    background: rgba(255,255,255,0.2);
+   525	    color: var(--white);
+   526	    padding: 12px 30px;
+   527	    border-radius: 30px;
+   528	    border: 1px solid rgba(255,255,255,0.3);
+   529	    font-size: 0.95rem;
+   530	    font-weight: 500;
+   531	    cursor: pointer;
+   532	    transition: var(--transition-smooth);
+   533	    display: inline-flex;
+   534	    align-items: center;
+   535	    gap: 10px;
+   536	}
+   537	
+   538	.btn-view-activities:hover {
+   539	    background: rgba(255,255,255,0.3);
+   540	    border-color: rgba(255,255,255,0.5);
+   541	}
+   542	
+   543	/* Contact Section */
+   544	.contact-section {
+   545	    background: var(--light-bg);
+   546	}
+   547	
+   548	.contact-message {
+   549	    text-align: center;
+   550	    max-width: 800px;
+   551	    margin: 0 auto 60px;
+   552	}
+   553	
+   554	.contact-intro {
+   555	    font-size: 1.2rem;
+   556	    color: var(--text-light);
+   557	    margin-bottom: 20px;
+   558	}
+   559	
+   560	.contact-main {
+   561	    font-size: 1.5rem;
+   562	    line-height: 1.8;
+   563	    color: var(--text-dark);
+   564	    margin-bottom: 20px;
+   565	}
+   566	
+   567	.contact-main .highlight {
+   568	    color: var(--accent-color);
+   569	    font-weight: 600;
+   570	}
+   571	
+   572	.contact-closing {
+   573	    font-size: 1.1rem;
+   574	    color: var(--text-light);
+   575	}
+   576	
+   577	.contact-info-grid {
+   578	    display: grid;
+   579	    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+   580	    gap: 30px;
+   581	    max-width: 1000px;
+   582	    margin: 0 auto;
+   583	}
+   584	
+   585	.contact-info-card {
+   586	    background: var(--white);
+   587	    padding: 30px;
+   588	    border-radius: 15px;
+   589	    text-align: center;
+   590	    transition: var(--transition-smooth);
+   591	}
+   592	
+   593	.contact-info-card:hover {
+   594	    transform: translateY(-5px);
+   595	    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+   596	}
+   597	
+   598	.contact-icon {
+   599	    width: 60px;
+   600	    height: 60px;
+   601	    margin: 0 auto 20px;
+   602	    background: var(--accent-color);
+   603	    border-radius: 50%;
+   604	    display: flex;
+   605	    align-items: center;
+   606	    justify-content: center;
+   607	    color: var(--white);
+   608	    font-size: 1.5rem;
+   609	}
+   610	
+   611	.contact-info-card h3 {
+   612	    font-size: 1.1rem;
+   613	    color: var(--primary-color);
+   614	    margin-bottom: 15px;
+   615	}
+   616	
+   617	.contact-info-card p {
+   618	    color: var(--text-light);
+   619	    line-height: 1.8;
+   620	}
+   621	
+   622	.contact-info-card a {
+   623	    color: var(--accent-color);
+   624	}
+   625	
+   626	.contact-info-card a:hover {
+   627	    text-decoration: underline;
+   628	}
+   629	
+   630	/* Footer */
+   631	.footer {
+   632	    background: var(--dark-navy);
+   633	    color: var(--white);
+   634	    padding: 40px 0 20px;
+   635	}
+   636	
+   637	.footer-content {
+   638	    display: flex;
+   639	    justify-content: space-between;
+   640	    align-items: center;
+   641	    margin-bottom: 30px;
+   642	}
+   643	
+   644	.footer-logo {
+   645	    font-size: 1.5rem;
+   646	    font-weight: 700;
+   647	}
+   648	
+   649	.footer-subtitle {
+   650	    font-size: 0.9rem;
+   651	    opacity: 0.7;
+   652	}
+   653	
+   654	.footer-bottom {
+   655	    text-align: center;
+   656	    padding-top: 20px;
+   657	    border-top: 1px solid rgba(255,255,255,0.1);
+   658	    opacity: 0.7;
+   659	    font-size: 0.9rem;
+   660	}
+   661	
+   662	/* Modal */
+   663	.modal {
+   664	    display: none;
+   665	    position: fixed;
+   666	    top: 0;
+   667	    left: 0;
+   668	    width: 100%;
+   669	    height: 100%;
+   670	    background: rgba(0,0,0,0.8);
+   671	    z-index: 2000;
+   672	    overflow-y: auto;
+   673	}
+   674	
+   675	.modal.active {
+   676	    display: flex;
+   677	    align-items: center;
+   678	    justify-content: center;
+   679	    padding: 20px;
+   680	}
+   681	
+   682	.modal-content {
+   683	    background: var(--white);
+   684	    border-radius: 20px;
+   685	    max-width: 900px;
+   686	    width: 100%;
+   687	    max-height: 90vh;
+   688	    overflow-y: auto;
+   689	    position: relative;
+   690	    animation: slideInUp 0.3s ease;
+   691	}
+   692	
+   693	.modal-close {
+   694	    position: absolute;
+   695	    top: 20px;
+   696	    right: 20px;
+   697	    width: 40px;
+   698	    height: 40px;
+   699	    border: none;
+   700	    background: var(--light-bg);
+   701	    border-radius: 50%;
+   702	    font-size: 1.2rem;
+   703	    cursor: pointer;
+   704	    display: flex;
+   705	    align-items: center;
+   706	    justify-content: center;
+   707	    transition: var(--transition-smooth);
+   708	    z-index: 10;
+   709	}
+   710	
+   711	.modal-close:hover {
+   712	    background: var(--accent-color);
+   713	    color: var(--white);
+   714	}
+   715	
+   716	.modal-header {
+   717	    padding: 40px 40px 20px;
+   718	    border-bottom: 1px solid var(--border-color);
+   719	}
+   720	
+   721	.modal-header h2 {
+   722	    font-size: 2rem;
+   723	    color: var(--primary-color);
+   724	    margin-bottom: 10px;
+   725	}
+   726	
+   727	.modal-header p {
+   728	    color: var(--text-light);
+   729	    font-family: var(--font-secondary);
+   730	    text-transform: uppercase;
+   731	    letter-spacing: 1px;
+   732	    font-size: 0.9rem;
+   733	}
+   734	
+   735	.modal-body {
+   736	    padding: 40px;
+   737	}
+   738	
+   739	.activity-list {
+   740	    display: flex;
+   741	    flex-direction: column;
+   742	    gap: 30px;
+   743	}
+   744	
+   745	.activity-item {
+   746	    padding: 30px;
+   747	    background: var(--light-bg);
+   748	    border-radius: 12px;
+   749	    border-left: 4px solid var(--accent-color);
+   750	}
+   751	
+   752	.activity-item h4 {
+   753	    font-size: 1.3rem;
+   754	    color: var(--primary-color);
+   755	    margin-bottom: 15px;
+   756	}
+   757	
+   758	.activity-meta {
+   759	    display: flex;
+   760	    flex-wrap: wrap;
+   761	    gap: 20px;
+   762	    margin-bottom: 20px;
+   763	    font-size: 0.9rem;
+   764	    color: var(--text-light);
+   765	}
+   766	
+   767	.activity-meta span {
+   768	    display: flex;
+   769	    align-items: center;
+   770	    gap: 8px;
+   771	}
+   772	
+   773	.activity-meta i {
+   774	    color: var(--accent-color);
+   775	}
+   776	
+   777	.activity-item p {
+   778	    color: var(--text-dark);
+   779	    line-height: 1.8;
+   780	}
+   781	
+   782	.empty-state {
+   783	    text-align: center;
+   784	    padding: 60px 20px;
+   785	    color: var(--text-light);
+   786	}
+   787	
+   788	.empty-state i {
+   789	    font-size: 4rem;
+   790	    margin-bottom: 20px;
+   791	    opacity: 0.3;
+   792	}
+   793	
+   794	.empty-state p {
+   795	    font-size: 1.1rem;
+   796	}
+   797	
+   798	/* Animations */
+   799	@keyframes fadeInUp {
+   800	    from {
+   801	        opacity: 0;
+   802	        transform: translateY(30px);
+   803	    }
+   804	    to {
+   805	        opacity: 1;
+   806	        transform: translateY(0);
+   807	    }
+   808	}
+   809	
+   810	@keyframes slideInUp {
+   811	    from {
+   812	        opacity: 0;
+   813	        transform: translateY(50px);
+   814	    }
+   815	    to {
+   816	        opacity: 1;
+   817	        transform: translateY(0);
+   818	    }
+   819	}
+   820	
+   821	@keyframes bounce {
+   822	    0%, 20%, 50%, 80%, 100% {
+   823	        transform: translateX(-50%) translateY(0);
+   824	    }
+   825	    40% {
+   826	        transform: translateX(-50%) translateY(-10px);
+   827	    }
+   828	    60% {
+   829	        transform: translateX(-50%) translateY(-5px);
+   830	    }
+   831	}
+   832	
+   833	/* Responsive Design */
+   834	@media (max-width: 768px) {
+   835	    .nav-menu {
+   836	        position: fixed;
+   837	        top: 70px;
+   838	        left: -100%;
+   839	        flex-direction: column;
+   840	        background: var(--dark-navy);
+   841	        width: 100%;
+   842	        padding: 20px;
+   843	        gap: 20px;
+   844	        transition: var(--transition-smooth);
+   845	    }
+   846	    
+   847	    .nav-menu.active {
+   848	        left: 0;
+   849	    }
+   850	    
+   851	    .mobile-toggle {
+   852	        display: flex;
+   853	    }
+   854	    
+   855	    .hero-title {
+   856	        font-size: 2.5rem;
+   857	    }
+   858	    
+   859	    .title-large {
+   860	        font-size: 3rem;
+   861	    }
+   862	    
+   863	    .hero-description {
+   864	        font-size: 1.1rem;
+   865	    }
+   866	    
+   867	    .section-title {
+   868	        font-size: 2rem;
+   869	    }
+   870	    
+   871	    .business-item {
+   872	        flex-direction: column;
+   873	    }
+   874	    
+   875	    .business-number {
+   876	        font-size: 2rem;
+   877	    }
+   878	    
+   879	    .activities-grid {
+   880	        grid-template-columns: 1fr;
+   881	    }
+   882	    
+   883	    .modal-content {
+   884	        margin: 20px;
+   885	    }
+   886	    
+   887	    .modal-header,
+   888	    .modal-body {
+   889	        padding: 30px 20px;
+   890	    }
+   891	    
+   892	    .activity-meta {
+   893	        flex-direction: column;
+   894	        gap: 10px;
+   895	    }
+   896	}
+   897	
+   898	.mt-2 {
+   899	    margin-top: 0.5rem;
+   900	}
+   901	    </style>
+   902	</head>
+   903	<body>
+   904	    <!-- Navigation -->
+   905	    <nav class="navbar" id="navbar">
+   906	        <div class="container">
+   907	            <div class="nav-wrapper">
+   908	                <a href="#home" class="logo">
+   909	                    <img src="https://www.genspark.ai/api/files/s/OPYxH8D4" alt="Amanut 로고" class="logo-img">
+   910	                </a>
+   911	                
+   912	                <button class="mobile-toggle" id="mobileToggle">
+   913	                    <span></span>
+   914	                    <span></span>
+   915	                    <span></span>
+   916	                </button>
+   917	                
+   918	                <ul class="nav-menu" id="navMenu">
+   919	                    <li><a href="#about" class="nav-link active">About Us</a></li>
+   920	                    <li><a href="#business" class="nav-link">Business</a></li>
+   921	                    <li><a href="#activities" class="nav-link">Our Work</a></li>
+   922	                    <li><a href="#contact" class="nav-link">Contact Us</a></li>
+   923	                </ul>
+   924	            </div>
+   925	        </div>
+   926	    </nav>
+   927	
+   928	    <!-- Hero Section -->
+   929	    <section id="home" class="hero-section">
+   930	        <div class="hero-overlay"></div>
+   931	        <div class="hero-content">
+   932	            <div class="container">
+   933	                <div class="hero-text">
+   934	                    <h1 class="hero-title">
+   935	                        <span class="title-large">Amanut</span>
+   936	                    </h1>
+   937	                    <p class="hero-meaning">히브리어로 '예술'을 의미합니다.</p>
+   938	                    <p class="hero-description">
+   939	                        Amanut는 문화 전략 컨설팅 기관으로<br>
+   940	                        정책·전략·실행을 연결하여<br>
+   941	                        지속 가능한 문화 생태계를 구축합니다.
+   942	                    </p>
+   943	                    
+   944	                    <div class="hero-buttons">
+   945	                        <a href="#about" class="btn btn-primary">연구소 소개</a>
+   946	                        <a href="#contact" class="btn btn-outline">문의하기</a>
+   947	                    </div>
+   948	                </div>
+   949	            </div>
+   950	        </div>
+   951	        
+   952	        <div class="scroll-indicator">
+   953	            <span>Scroll Down</span>
+   954	            <i class="fas fa-chevron-down"></i>
+   955	        </div>
+   956	    </section>
+   957	
+   958	    <!-- About Section -->
+   959	    <section id="about" class="section about-section">
+   960	        <div class="container">
+   961	            <div class="section-header">
+   962	                <p class="section-subtitle">About Us</p>
+   963	                <h2 class="section-title">Amanut</h2>
+   964	            </div>
+   965	            
+   966	            <div class="about-content">
+   967	                <div class="about-description">
+   968	                    <p class="about-main-tagline">공동체 기반의 문화 시스템과 문화재생 전략으로<br>지속가능한 문화생태계 구축과 공공의 가치 창출</p>
+   969	                </div>
+   970	                
+   971	                <div class="about-values">
+   972	                    <div class="value-box">
+   973	                        <div class="value-icon">
+   974	                            <i class="fas fa-project-diagram"></i>
+   975	                        </div>
+   976	                        <h3>Systems Design</h3>
+   977	                        <p>문화를 통합 시스템으로 접근<br>지속 가능한 구조를 설계합니다.</p>
+   978	                    </div>
+   979	                    
+   980	                    <div class="value-box">
+   981	                        <div class="value-icon">
+   982	                            <i class="fas fa-users"></i>
+   983	                        </div>
+   984	                        <h3>Participation & Collaboration</h3>
+   985	                        <p>공동체와 기관을 연결하는<br>협력 네트워크를 구축합니다.</p>
+   986	                    </div>
+   987	                    
+   988	                    <div class="value-box">
+   989	                        <div class="value-icon">
+   990	                            <i class="fas fa-chart-line"></i>
+   991	                        </div>
+   992	                        <h3>Impact & Public Value</h3>
+   993	                        <p>측정 가능한 성과와<br>장기적 사회 가치를 창출합니다.</p>
+   994	                    </div>
+   995	                </div>
+   996	            </div>
+   997	        </div>
+   998	    </section>
+   999	
+  1000	    <!-- Business Areas Section -->
+  1001	    <section id="business" class="section business-section">
+  1002	        <div class="container">
+  1003	            <div class="section-header">
+  1004	                <p class="section-subtitle">Core Business Areas</p>
+  1005	                <h2 class="section-title">주요 사업 영역<br><span class="highlight">Strategic Business Portfolio</span></h2>
+  1006	            </div>
+  1007	            
+  1008	            <div class="business-list">
+  1009	                <div class="business-item">
+  1010	                    <div class="business-number">01</div>
+  1011	                    <div class="business-content">
+  1012	                        <div class="business-icon">
+  1013	                            <i class="fas fa-network-wired"></i>
+  1014	                        </div>
+  1015	                        <h3>Community Cultural Systems Design</h3>
+  1016	                        <p class="business-subtitle">커뮤니티 기반 문화 시스템 설계</p>
+  1017	                        <ul class="business-details">
+  1018	                            <li>지역 기반 문화 운영 모델 설계</li>
+  1019	                            <li>주민 참여 구조 및 협력 네트워크 설계</li>
+  1020	                            <li>대상별 맞춤형 문화 프로그램 체계 구축</li>
+  1021	                            <li>커뮤니티 문화 활성화 전략 수립</li>
+  1022	                        </ul>
+  1023	                    </div>
+  1024	                </div>
+  1025	                
+  1026	                <div class="business-item">
+  1027	                    <div class="business-number">02</div>
+  1028	                    <div class="business-content">
+  1029	                        <div class="business-icon">
+  1030	                            <i class="fas fa-users"></i>
+  1031	                        </div>
+  1032	                        <h3>Participatory Festival & Program Strategy</h3>
+  1033	                        <p class="business-subtitle">참여형 전시·축제 및 프로그램 전략 설계</p>
+  1034	                        <ul class="business-details">
+  1035	                            <li>주민 참여형 축제 마스터플랜 수립</li>
+  1036	                            <li>전시·워크숍 구조 설계</li>
+  1037	                            <li>세대 통합형 문화 프로젝트 전략 수립</li>
+  1038	                            <li>지속 가능한 문화 경험 시스템 설계</li>
+  1039	                        </ul>
+  1040	                    </div>
+  1041	                </div>
+  1042	                
+  1043	                <div class="business-item">
+  1044	                    <div class="business-number">03</div>
+  1045	                    <div class="business-content">
+  1046	                        <div class="business-icon">
+  1047	                            <i class="fas fa-chart-line"></i>
+  1048	                        </div>
+  1049	                        <h3>Cultural Impact & Social Value Framework</h3>
+  1050	                        <p class="business-subtitle">문화 성과 및 사회적 가치 평가 체계 설계</p>
+  1051	                        <ul class="business-details">
+  1052	                            <li>문화 프로그램 성과 지표 개발</li>
+  1053	                            <li>공동체 변화 측정 모델 설계</li>
+  1054	                            <li>정량·정성 통합 평가 체계 구축</li>
+  1055	                            <li>정책 연계형 성과 프레임 개발</li>
+  1056	                        </ul>
+  1057	                    </div>
+  1058	                </div>
+  1059	                
+  1060	                <div class="business-item">
+  1061	                    <div class="business-number">04</div>
+  1062	                    <div class="business-content">
+  1063	                        <div class="business-icon">
+  1064	                            <i class="fas fa-building"></i>
+  1065	                        </div>
+  1066	                        <h3>Cultural Space & Regeneration Strategy</h3>
+  1067	                        <p class="business-subtitle">문화공간 및 유휴공간 활용 전략</p>
+  1068	                        <ul class="business-details">
+  1069	                            <li>복합문화공간 운영 모델 설계</li>
+  1070	                            <li>유휴공간의 문화적 재생 전략 수립</li>
+  1071	                            <li>지역 문화 거점 활성화 구조 설계</li>
+  1072	                        </ul>
+  1073	                    </div>
+  1074	                </div>
+  1075	                
+  1076	                <div class="business-item">
+  1077	                    <div class="business-number">05</div>
+  1078	                    <div class="business-content">
+  1079	                        <div class="business-icon">
+  1080	                            <i class="fas fa-project-diagram"></i>
+  1081	                        </div>
+  1082	                        <h3>Cultural Strategy & Collaborative Design</h3>
+  1083	                        <p class="business-subtitle">문화 전략 및 협력 구조 설계</p>
+  1084	                        <ul class="business-details">
+  1085	                            <li>지역 문화 포지셔닝 전략 수립</li>
+  1086	                            <li>공공기관 문화 정책 자문</li>
+  1087	                            <li>협력 네트워크 및 파트너십 구조 설계</li>
+  1088	                            <li>해외 기관 연계 및 국제 협력 모델 설계</li>
+  1089	                            <li>지역 기반 국제 문화교류 전략 수립</li>
+  1090	                        </ul>
+  1091	                    </div>
+  1092	                </div>
+  1093	            </div>
+  1094	        </div>
+  1095	    </section>
+  1096	
+  1097	    <!-- Activities Section -->
+  1098	    <section id="activities" class="section activities-section">
+  1099	        <div class="container">
+  1100	            <div class="section-header">
+  1101	                <p class="section-subtitle">Our Work</p>
+  1102	                <h2 class="section-title">Strategic Capabilities</h2>
+  1103	            </div>
+  1104	            
+  1105	            <div class="activities-grid">
+  1106	                <div class="activity-card" data-activity="policy-research">
+  1107	                    <div class="activity-number">01</div>
+  1108	                    <div class="activity-icon">
+  1109	                        <i class="fas fa-balance-scale"></i>
+  1110	                    </div>
+  1111	                    <h3>문화정책 및<br>문화기획 연구</h3>
+  1112	                    <p class="activity-subtitle">Policy Research</p>
+  1113	                    <button class="btn-view-activities" data-category="policy-research">
+  1114	                        활동 보기 <i class="fas fa-arrow-right"></i>
+  1115	                    </button>
+  1116	                </div>
+  1117	                
+  1118	                <div class="activity-card" data-activity="content-development">
+  1119	                    <div class="activity-number">02</div>
+  1120	                    <div class="activity-icon">
+  1121	                        <i class="fas fa-lightbulb"></i>
+  1122	                    </div>
+  1123	                    <h3>문화콘텐츠<br>개발</h3>
+  1124	                    <p class="activity-subtitle">Content Development</p>
+  1125	                    <button class="btn-view-activities" data-category="content-development">
+  1126	                        활동 보기 <i class="fas fa-arrow-right"></i>
+  1127	                    </button>
+  1128	                </div>
+  1129	                
+  1130	                <div class="activity-card" data-activity="festival-planning">
+  1131	                    <div class="activity-number">03</div>
+  1132	                    <div class="activity-icon">
+  1133	                        <i class="fas fa-masks-theater"></i>
+  1134	                    </div>
+  1135	                    <h3>전시·공연·축제<br>기획·운영</h3>
+  1136	                    <p class="activity-subtitle">Festival Planning</p>
+  1137	                    <button class="btn-view-activities" data-category="festival-planning">
+  1138	                        활동 보기 <i class="fas fa-arrow-right"></i>
+  1139	                    </button>
+  1140	                </div>
+  1141	                
+  1142	                <div class="activity-card" data-activity="public-consulting">
+  1143	                    <div class="activity-number">04</div>
+  1144	                    <div class="activity-icon">
+  1145	                        <i class="fas fa-comments"></i>
+  1146	                    </div>
+  1147	                    <h3>공공 문화사업<br>실행 컨설팅</h3>
+  1148	                    <p class="activity-subtitle">Public Consulting</p>
+  1149	                    <button class="btn-view-activities" data-category="public-consulting">
+  1150	                        활동 보기 <i class="fas fa-arrow-right"></i>
+  1151	                    </button>
+  1152	                </div>
+  1153	                
+  1154	                <div class="activity-card" data-activity="global-exchange">
+  1155	                    <div class="activity-number">05</div>
+  1156	                    <div class="activity-icon">
+  1157	                        <i class="fas fa-earth-asia"></i>
+  1158	                    </div>
+  1159	                    <h3>국제문화교류 및<br>협력 프로그램 기획</h3>
+  1160	                    <p class="activity-subtitle">Global Exchange</p>
+  1161	                    <button class="btn-view-activities" data-category="global-exchange">
+  1162	                        활동 보기 <i class="fas fa-arrow-right"></i>
+  1163	                    </button>
+  1164	                </div>
+  1165	                
+  1166	                <div class="activity-card" data-activity="space-regeneration">
+  1167	                    <div class="activity-number">06</div>
+  1168	                    <div class="activity-icon">
+  1169	                        <i class="fas fa-building"></i>
+  1170	                    </div>
+  1171	                    <h3>유휴공간 재생 및<br>문화적 활용 기획</h3>
+  1172	                    <p class="activity-subtitle">Space Regeneration</p>
+  1173	                    <button class="btn-view-activities" data-category="space-regeneration">
+  1174	                        활동 보기 <i class="fas fa-arrow-right"></i>
+  1175	                    </button>
+  1176	                </div>
+  1177	            </div>
+  1178	        </div>
+  1179	    </section>
+  1180	
+  1181	    <!-- Contact Section -->
+  1182	    <section id="contact" class="section contact-section">
+  1183	        <div class="container">
+  1184	            <div class="section-header">
+  1185	                <p class="section-subtitle">Closing & Contact</p>
+  1186	                <h2 class="section-title">연락처</h2>
+  1187	            </div>
+  1188	            
+  1189	            <div class="contact-content">
+  1190	                <div class="contact-message">
+  1191	                    <p class="contact-intro">Amanut는 문화 전략 컨설팅 기관으로</p>
+  1192	                    <p class="contact-main">정책·전략·실행을 연결하여 <span class="highlight">지속 가능한 문화 생태계</span>를 구축합니다.</p>
+  1193	                    <p class="contact-closing">신뢰받는 문화 전략 파트너로서 여러분과 함께 성장하겠습니다.</p>
+  1194	                </div>
+  1195	                
+  1196	                <div class="contact-info-grid">
+  1197	                    <div class="contact-info-card">
+  1198	                        <div class="contact-icon">
+  1199	                            <i class="fas fa-phone"></i>
+  1200	                        </div>
+  1201	                        <h3>TEL</h3>
+  1202	                        <p>010-4222-1353<br>972-058-796-6890</p>
+  1203	                    </div>
+  1204	                    
+  1205	                    <div class="contact-info-card">
+  1206	                        <div class="contact-icon">
+  1207	                            <i class="fas fa-envelope"></i>
+  1208	                        </div>
+  1209	                        <h3>E-MAIL</h3>
+  1210	                        <p><a href="mailto:kimjungsun0326@gmail.com">kimjungsun0326<br>@gmail.com</a></p>
+  1211	                    </div>
+  1212	                    
+  1213	                    <div class="contact-info-card">
+  1214	                        <div class="contact-icon">
+  1215	                            <i class="fas fa-globe"></i>
+  1216	                        </div>
+  1217	                        <h3>WEBSITE</h3>
+  1218	                        <p><a href="https://amanut.co.kr" target="_blank">amanut.co.kr</a></p>
+  1219	                    </div>
+  1220	                    
+  1221	                    <div class="contact-info-card">
+  1222	                        <div class="contact-icon">
+  1223	                            <i class="fas fa-map-marker-alt"></i>
+  1224	                        </div>
+  1225	                        <h3>ADDRESS</h3>
+  1226	                        <p>전라남도 광양시 진상면 학연로 22<br>50 Ben Gurion Ave.,<br>Haifa, Israel</p>
+  1227	                    </div>
+  1228	                </div>
+  1229	            </div>
+  1230	        </div>
+  1231	    </section>
+  1232	
+  1233	    <!-- Footer -->
+  1234	    <footer class="footer">
+  1235	        <div class="container">
+  1236	            <div class="footer-content">
+  1237	                <div class="footer-logo">
+  1238	                    <p>Amanut</p>
+  1239	                    <p class="footer-subtitle">Cultural Strategy Consultancy</p>
+  1240	                </div>
+  1241	            </div>
+  1242	            
+  1243	            <div class="footer-bottom">
+  1244	                <p>&copy; 2026 Amanut. All rights reserved.</p>
+  1245	            </div>
+  1246	        </div>
+  1247	    </footer>
+  1248	
+  1249	    <!-- Activity Modal -->
+  1250	    <div id="activityModal" class="modal">
+  1251	        <div class="modal-content">
+  1252	            <button class="modal-close" id="modalClose">
+  1253	                <i class="fas fa-times"></i>
+  1254	            </button>
+  1255	            
+  1256	            <div class="modal-header">
+  1257	                <h2 id="modalTitle">활동 내역</h2>
+  1258	                <p id="modalCategory"></p>
+  1259	            </div>
+  1260	            
+  1261	            <div class="modal-body" id="modalBody">
+  1262	                <!-- 활동 내역이 동적으로 로드됩니다 -->
+  1263	            </div>
+  1264	        </div>
+  1265	    </div>
+  1266	
+  1267	    <script>
+  1268	// JavaScript with embedded activity data
+  1269	const state = {
+  1270	    currentLang: 'ko',
+  1271	    activities: {}
+  1272	};
+  1273	
+  1274	const ACTIVITIES_DATA = {
+  1275	    'policy-research': [
+  1276	        {
+  1277	            title: '청소년 자기주도 프로젝트 평가 지표 개발',
+  1278	            date: '2025-10-30',
+  1279	            location: '서울시',
+  1280	            partner: '서울시교육청 다가치학교 강남서초',
+  1281	            description: '청소년 자기주도 프로젝트의 효과를 측정하기 위한 평가 지표 및 성과 측정 체계를 구축하였습니다. 타당도와 신뢰도를 검증하여 청소년 교육 프로그램의 질적 향상에 기여하는 평가 프레임을 개발하였습니다.'
+  1282	        },
+  1283	        {
+  1284	            title: '사회적 예술치유에서의 치유적 개입요인 탐색 연구',
+  1285	            date: '2024-12-28',
+  1286	            location: '서울시',
+  1287	            partner: '한국예술심리치료학회',
+  1288	            description: '사회적 예술치유의 대상을 포괄적으로 규정하고, 치료적 개입 요인을 체계적으로 도출하는 연구를 수행하였습니다. 예술치유의 이론적 기반을 확립하고, 실천 현장에 적용 가능한 개입 모델을 제시하였습니다.'
+  1289	        },
+  1290	        {
+  1291	            title: '커뮤니티 기반 문화예술교육 효과분석',
+  1292	            date: '2024-12-01',
+  1293	            location: '서울시 서초구',
+  1294	            partner: '서초구청',
+  1295	            description: '\'나·너·우리\' 인식 변화 모형을 개발하고, 효과 지표를 설계하여 커뮤니티 기반 문화예술교육의 유의미한 향상을 확인하였습니다. 지역 공동체의 사회적 결속력 강화에 기여하는 연구 결과를 도출하였습니다.'
+  1296	        },
+  1297	        {
+  1298	            title: '양육자 대상 예술 매개 심리지원 프로그램 개발 실행연구',
+  1299	            date: '2023-09-01',
+  1300	            location: '서울시',
+  1301	            partner: '서울시민청',
+  1302	            description: '양육 스트레스 감소와 정서 안정을 증명하고, 지속가능한 양육환경 모델을 제시하는 실행연구를 수행하였습니다. 예술 매개 심리지원의 효과를 검증하고, 양육자 지원 프로그램의 정책적 확산 방안을 제안하였습니다.'
+  1303	        },
+  1304	        {
+  1305	            title: '재난피해민 집단통합예술치료 경험연구',
+  1306	            date: '2017-06-30',
+  1307	            location: '서울시',
+  1308	            partner: '(사)굿피플인터내셔널',
+  1309	            description: 'BASIC Ph 모델을 기반으로 재난 피해민의 위기 대응 핵심 요인을 탐색하는 연구를 수행하였습니다. 재난 트라우마 치유를 위한 통합예술치료 프로그램의 효과를 검증하고, 위기 개입 모델을 제시하였습니다.'
+  1310	        }
+  1311	    ],
+  1312	    'content-development': [
+  1313	        {
+  1314	            title: '지역연계 Community Healing Festival 기획',
+  1315	            date: '2025-10-15',
+  1316	            location: '서울시',
+  1317	            partner: '서울시교육청·다가치학교 강남서초',
+  1318	            description: '청소년 주도형 문화축제로 지역 사회와 청소년을 연결하는 힐링 페스티벌을 기획하였습니다. 청소년의 창의성과 주도성을 발휘할 수 있는 문화 플랫폼을 구축하고, 지역 공동체와의 협력 구조를 설계하였습니다.'
+  1319	        },
+  1320	        {
+  1321	            title: '지역연계 Flea Market 기획',
+  1322	            date: '2025-05-15',
+  1323	            location: '서울시',
+  1324	            partner: '서울시교육청',
+  1325	            description: '자원 순환과 업사이클링 교육을 통해 청소년의 자율적 참여를 유도하는 플리마켓을 기획하였습니다. 환경 교육과 지역 경제 활성화를 동시에 달성하는 청소년 주도형 프로그램을 구축하였습니다.'
+  1326	        },
+  1327	        {
+  1328	            title: 'Drone Camp 기획',
+  1329	            date: '2024-08-01',
+  1330	            location: '반포1동주민센터',
+  1331	            partner: '서초구교육지원센터',
+  1332	            description: '드론을 활용한 문화 경험과 기술 리터러시, 협업 역량을 강화하는 청소년 캠프를 기획하였습니다. 4차 산업혁명 시대에 필요한 기술 역량과 창의성을 함양하는 교육 프로그램을 설계하였습니다.'
+  1333	        },
+  1334	        {
+  1335	            title: '강남서초 청소년 자기주도 프로젝트 23개 기획',
+  1336	            date: '2024-08-01',
+  1337	            location: '서울시',
+  1338	            partner: '서울시교육청·다가치학교 강남서초',
+  1339	            description: '전 과정을 청소년이 주도하며 협업과 진로 탐색을 경험하는 23개의 자기주도 프로젝트를 기획하였습니다. 청소년의 자율성과 창의성을 최대한 발휘할 수 있는 프로젝트 기반 학습 체계를 구축하였습니다.'
+  1340	        },
+  1341	        {
+  1342	            title: '5월 가정의 달 "가족의 재발견" 행사 기획',
+  1343	            date: '2024-05-15',
+  1344	            location: '반포잠원교육지원센터',
+  1345	            partner: '서초구교육지원센터',
+  1346	            description: '예술 활동을 통한 세대 간 소통과 가족 공동체 가치를 재발견하는 문화 행사를 기획하였습니다. 가족 단위 참여 프로그램을 통해 세대 통합형 문화 경험을 제공하고, 가족 관계 강화를 지원하였습니다.'
+  1347	        },
+  1348	        {
+  1349	            title: '커뮤니티 기반 문화예술교육 프로그램 22개 기획',
+  1350	            date: '2023-10-01',
+  1351	            location: '서울시 서초구',
+  1352	            partner: '서초구청·교육지원센터',
+  1353	            description: '청소년의 자기 인식, 타인 이해, 공동체 역량을 강화하는 22개의 문화예술교육 프로그램을 기획하였습니다. 커뮤니티 중심의 예술교육 체계를 구축하고, 청소년의 사회정서 역량 향상을 지원하였습니다.'
+  1354	        },
+  1355	        {
+  1356	            title: '감정노동자 대상 "예술로 힐링" 워크숍 기획',
+  1357	            date: '2020-10-01',
+  1358	            location: '부산·서울 면세점',
+  1359	            partner: '한국표준협회',
+  1360	            description: '스트레스와 트라우마 예방을 위한 예술치유 워크숍을 감정노동자를 대상으로 기획하였습니다. 직무 스트레스 완화와 심리적 회복탄력성 강화를 지원하는 예술 기반 치유 프로그램을 설계하였습니다.'
+  1361	        },
+  1362	        {
+  1363	            title: '충북교육청 교사직무역량강화교육: "예술로 힐링" 워크숍',
+  1364	            date: '2020-09-01',
+  1365	            location: '충북 서원대학교',
+  1366	            partner: '충북교육청',
+  1367	            description: '교사의 스트레스 완화와 예술 기반 교수 기법 습득을 위한 직무역량강화교육을 기획하였습니다. 교사의 심리적 소진을 예방하고, 예술을 활용한 교육 방법론을 제공하여 교육 현장의 질적 향상을 지원하였습니다.'
+  1368	        },
+  1369	        {
+  1370	            title: '"누구나 희희낙락: 엄마의 화려한 외출" 워크숍',
+  1371	            date: '2020-08-01',
+  1372	            location: '서울시민청',
+  1373	            partner: '서울문화재단·시민청',
+  1374	            description: '양육 스트레스와 태도 변화를 측정하고, 예술 매개 지원을 제공하는 양육자 대상 워크숍을 기획하였습니다. 양육자의 심리적 안정과 양육 효능감 향상을 지원하는 문화 프로그램을 설계하였습니다.'
+  1375	        },
+  1376	        {
+  1377	            title: '새터민 대상 트라우마 예방·치유 워크숍',
+  1378	            date: '2018-07-01',
+  1379	            location: '자유시민대학',
+  1380	            partner: '자유시민대학',
+  1381	            description: '새터민의 이탈과 정착 과정에서 발생하는 스트레스를 지원하는 트라우마 예방 및 치유 워크숍을 기획하였습니다. 문화 적응과 심리적 안정을 돕는 예술 기반 치유 프로그램을 제공하였습니다.'
+  1382	        },
+  1383	        {
+  1384	            title: '부처간 협력 군장병 문화예술교육 프로그램',
+  1385	            date: '2018-03-01',
+  1386	            location: '강서구 육군본부',
+  1387	            partner: '한국문화예술교육진흥원',
+  1388	            description: '기타 연주를 기반으로 군장병의 스트레스 완화와 자기 돌봄을 지원하는 문화예술교육 프로그램을 기획하였습니다. 군 생활의 심리적 안정과 정서적 회복력 강화를 위한 예술교육 체계를 구축하였습니다.'
+  1389	        },
+  1390	        {
+  1391	            title: '암환우·보호자 "예술로 치유" 워크숍',
+  1392	            date: '2017-10-01',
+  1393	            location: '복내전인치유센터',
+  1394	            partner: '복내전인치유센터',
+  1395	            description: '3F 반응(Fight, Flight, Freeze)을 이해하고 자기 이해와 회복탄력성을 강화하는 암환우 및 보호자 대상 워크숍을 기획하였습니다. 질병 과정에서의 심리적 지원과 예술 기반 치유 경험을 제공하였습니다.'
+  1396	        },
+  1397	        {
+  1398	            title: '학교폭력예방프로젝트',
+  1399	            date: '2017-09-01',
+  1400	            location: '강서·금천교육지원청',
+  1401	            partner: '서울시남부교육지원청',
+  1402	            description: '관계 회복을 위한 예술 기반 학교폭력예방프로젝트를 기획하여 청소년의 사회정서 역량을 강화하였습니다. 또래 관계 개선과 공감 능력 향상을 위한 예술교육 프로그램을 설계하였습니다.'
+  1403	        },
+  1404	        {
+  1405	            title: '수도방위 사령부 장교 대상 공동체 예술치유 워크숍',
+  1406	            date: '2017-09-01',
+  1407	            location: '수도방위 사령부',
+  1408	            partner: '수도방위 사령부',
+  1409	            description: '리더십과 관계 역량 강화를 위한 공동체 예술치유 워크숍을 장교 대상으로 기획하였습니다. 조직 내 협력과 소통을 강화하고, 리더십 역량을 향상시키는 예술 기반 프로그램을 제공하였습니다.'
+  1410	        },
+  1411	        {
+  1412	            title: '외상후 성장(Post-Traumatic Growth) 캠프',
+  1413	            date: '2017-07-01',
+  1414	            location: '안산지역 7개소 아동센터',
+  1415	            partner: '굿피플인터내셔널',
+  1416	            description: '세월호 피해 아동을 대상으로 외상후 성장(PTG)을 지원하는 캠프를 기획하였습니다. 안산 지역 7개 아동센터와 협력하여 재난 트라우마 치유와 심리적 회복력 강화를 위한 통합적 지원 프로그램을 제공하였습니다.'
+  1417	        }
+  1418	    ],
+  1419	    'festival-planning': [
+  1420	        {
+  1421	            title: '2023 서초어린이 예술제 기획',
+  1422	            date: '2024-10-15',
+  1423	            location: '반포심산아트홀',
+  1424	            partner: '서초구',
+  1425	            description: '2023 서초 어린이 아트 페스티벌은 환경의 중요성과 지속 가능한 삶의 가치를 청소년의 시각에서 전달하기 위해 기획된 창작 뮤지컬 프로젝트입니다. 기획 단계에서부터 청소년의 참여와 공감 구조를 설계하여 환경 담론이 자연스럽게 체험될 수 있도록 구성하였습니다. 예술적 서사를 통해 환경 의제를 재해석하고, 청소년의 주체적 성찰을 이끌어내는 데 중점을 두었습니다. 또한 지역 문화 공간과의 연계를 통해 공동체 기반 문화 프로그램으로 확장하였습니다.'
+  1426	        }
+  1427	    ],
+  1428	    'public-consulting': [
+  1429	        {
+  1430	            title: '공공 문화사업 실행 컨설팅',
+  1431	            date: '2026-01-01',
+  1432	            location: '전국',
+  1433	            partner: '지방자치단체, 문화재단, 공공기관',
+  1434	            description: '본 연구소는 공공문화사업의 실효성과 실행력을 높이기 위해 지방자치단체, 문화재단, 공공기관을 대상으로 실행 중심의 전문 컨설팅을 수행하고 있습니다. 다만, 일부 수행 건은 발주기관의 요청 및 비공개 협약에 따라 기관명과 과업의 구체적 내용은 별도로 공개하지 않습니다.'
+  1435	        }
+  1436	    ],
+  1437	    'global-exchange': [],
+  1438	    'space-regeneration': []
+  1439	};
+  1440	
+  1441	// DOM Elements
+  1442	const navbar = document.getElementById('navbar');
+  1443	const mobileToggle = document.getElementById('mobileToggle');
+  1444	const navMenu = document.getElementById('navMenu');
+  1445	const navLinks = document.querySelectorAll('.nav-link');
+  1446	const activityModal = document.getElementById('activityModal');
+  1447	const modalClose = document.getElementById('modalClose');
+  1448	const btnViewActivities = document.querySelectorAll('.btn-view-activities');
+  1449	
+  1450	// Sticky Navbar
+  1451	window.addEventListener('scroll', () => {
+  1452	    if (window.scrollY > 100) {
+  1453	        navbar.classList.add('scrolled');
+  1454	    } else {
+  1455	        navbar.classList.remove('scrolled');
+  1456	    }
+  1457	});
+  1458	
+  1459	// Mobile Menu Toggle
+  1460	if (mobileToggle && navMenu) {
+  1461	    mobileToggle.addEventListener('click', () => {
+  1462	        navMenu.classList.toggle('active');
+  1463	        
+  1464	        const spans = mobileToggle.querySelectorAll('span');
+  1465	        spans[0].style.transform = navMenu.classList.contains('active') 
+  1466	            ? 'rotate(45deg) translateY(8px)' 
+  1467	            : 'none';
+  1468	        spans[1].style.opacity = navMenu.classList.contains('active') ? '0' : '1';
+  1469	        spans[2].style.transform = navMenu.classList.contains('active') 
+  1470	            ? 'rotate(-45deg) translateY(-8px)' 
+  1471	            : 'none';
+  1472	    });
+  1473	}
+  1474	
+  1475	// Smooth Scrolling
+  1476	navLinks.forEach(link => {
+  1477	    link.addEventListener('click', (e) => {
+  1478	        const href = link.getAttribute('href');
+  1479	        
+  1480	        if (href.startsWith('#')) {
+  1481	            e.preventDefault();
+  1482	            
+  1483	            const targetId = href.substring(1);
+  1484	            const targetSection = document.getElementById(targetId);
+  1485	            
+  1486	            if (targetSection) {
+  1487	                navMenu.classList.remove('active');
+  1488	                
+  1489	                const navHeight = navbar.offsetHeight;
+  1490	                const targetPosition = targetSection.offsetTop - navHeight;
+  1491	                
+  1492	                window.scrollTo({
+  1493	                    top: targetPosition,
+  1494	                    behavior: 'smooth'
+  1495	                });
+  1496	                
+  1497	                navLinks.forEach(l => l.classList.remove('active'));
+  1498	                link.classList.add('active');
+  1499	            }
+  1500	        }
+  1501	    });
+  1502	});
+  1503	
+  1504	// Update active nav link on scroll
+  1505	const sections = document.querySelectorAll('.section, .hero-section');
+  1506	window.addEventListener('scroll', () => {
+  1507	    let current = '';
+  1508	    const navHeight = navbar.offsetHeight;
+  1509	    
+  1510	    sections.forEach(section => {
+  1511	        const sectionTop = section.offsetTop - navHeight - 100;
+  1512	        const sectionHeight = section.offsetHeight;
+  1513	        
+  1514	        if (window.scrollY >= sectionTop && window.scrollY < sectionTop + sectionHeight) {
+  1515	            current = section.getAttribute('id');
+  1516	        }
+  1517	    });
+  1518	    
+  1519	    navLinks.forEach(link => {
+  1520	        link.classList.remove('active');
+  1521	        if (link.getAttribute('href') === `#${current}`) {
+  1522	            link.classList.add('active');
+  1523	        }
+  1524	    });
+  1525	});
+  1526	
+  1527	// Open Modal
+  1528	btnViewActivities.forEach(btn => {
+  1529	    btn.addEventListener('click', async (e) => {
+  1530	        e.stopPropagation();
+  1531	        const category = btn.getAttribute('data-category');
+  1532	        await loadActivities(category);
+  1533	    });
+  1534	});
+  1535	
+  1536	// Close Modal
+  1537	if (modalClose) {
+  1538	    modalClose.addEventListener('click', () => {
+  1539	        closeModal();
+  1540	    });
+  1541	}
+  1542	
+  1543	if (activityModal) {
+  1544	    activityModal.addEventListener('click', (e) => {
+  1545	        if (e.target === activityModal) {
+  1546	            closeModal();
+  1547	        }
+  1548	    });
+  1549	}
+  1550	
+  1551	document.addEventListener('keydown', (e) => {
+  1552	    if (e.key === 'Escape' && activityModal.classList.contains('active')) {
+  1553	        closeModal();
+  1554	    }
+  1555	});
+  1556	
+  1557	function closeModal() {
+  1558	    activityModal.classList.remove('active');
+  1559	    document.body.style.overflow = 'auto';
+  1560	}
+  1561	
+  1562	// Load Activities (Static Data Version)
+  1563	async function loadActivities(category) {
+  1564	    const categoryNames = {
+  1565	        'policy-research': '문화정책 및 문화기획 연구',
+  1566	        'content-development': '문화콘텐츠 개발',
+  1567	        'public-consulting': '공공 문화사업 실행 컨설팅',
+  1568	        'festival-planning': '전시·공연·축제 기획·운영',
+  1569	        'global-exchange': '국제문화교류 및 협력 프로그램 기획',
+  1570	        'space-regeneration': '유휴공간 재생 및 문화적 활용 기획'
+  1571	    };
+  1572	    
+  1573	    const modalTitle = document.getElementById('modalTitle');
+  1574	    const modalCategory = document.getElementById('modalCategory');
+  1575	    const modalBody = document.getElementById('modalBody');
+  1576	    
+  1577	    modalTitle.textContent = categoryNames[category] || '활동 내역';
+  1578	    modalCategory.textContent = category.split('-').map(word => 
+  1579	        word.charAt(0).toUpperCase() + word.slice(1)
+  1580	    ).join(' ');
+  1581	    
+  1582	    modalBody.innerHTML = '<div class="loading"><i class="fas fa-spinner fa-spin"></i> 로딩 중...</div>';
+  1583	    activityModal.classList.add('active');
+  1584	    document.body.style.overflow = 'hidden';
+  1585	    
+  1586	    setTimeout(() => {
+  1587	        const activities = ACTIVITIES_DATA[category] || [];
+  1588	        
+  1589	        if (activities.length === 0) {
+  1590	            modalBody.innerHTML = `
+  1591	                <div class="empty-state">
+  1592	                    <i class="fas fa-folder-open"></i>
+  1593	                    <p>아직 등록된 활동이 없습니다.</p>
+  1594	                </div>
+  1595	            `;
+  1596	        } else {
+  1597	            modalBody.innerHTML = `
+  1598	                <div class="activity-list">
+  1599	                    ${activities.map(activity => `
+  1600	                        <div class="activity-item">
+  1601	                            <h4>${activity.title}</h4>
+  1602	                            <div class="activity-meta">
+  1603	                                <span><i class="fas fa-calendar"></i> ${formatDate(activity.date)}</span>
+  1604	                                ${activity.location ? `<span><i class="fas fa-map-marker-alt"></i> ${activity.location}</span>` : ''}
+  1605	                                ${activity.partner ? `<span><i class="fas fa-handshake"></i> ${activity.partner}</span>` : ''}
+  1606	                            </div>
+  1607	                            <p>${activity.description}</p>
+  1608	                            ${activity.link ? `<a href="${activity.link}" target="_blank" class="btn btn-outline btn-sm mt-2"><i class="fas fa-external-link-alt"></i> 자세히 보기</a>` : ''}
+  1609	                        </div>
+  1610	                    `).join('')}
+  1611	                </div>
+  1612	            `;
+  1613	        }
+  1614	    }, 300);
+  1615	}
+  1616	
+  1617	function formatDate(dateString) {
+  1618	    if (!dateString) return '';
+  1619	    
+  1620	    const date = new Date(dateString);
+  1621	    const year = date.getFullYear();
+  1622	    const month = String(date.getMonth() + 1).padStart(2, '0');
+  1623	    const day = String(date.getDate()).padStart(2, '0');
+  1624	    
+  1625	    return `${year}.${month}.${day}`;
+  1626	}
+  1627	
+  1628	// Activity cards can also be clicked directly
+  1629	document.querySelectorAll('.activity-card').forEach(card => {
+  1630	    card.addEventListener('click', (e) => {
+  1631	        if (!e.target.classList.contains('btn-view-activities')) {
+  1632	            const btn = card.querySelector('.btn-view-activities');
+  1633	            if (btn) {
+  1634	                btn.click();
+  1635	            }
+  1636	        }
+  1637	    });
+  1638	});
+  1639	
+  1640	document.addEventListener('DOMContentLoaded', () => {
+  1641	    console.log('정선(正善) 문화전략연구소 웹사이트 초기화 완료');
+  1642	    console.log('✓ 활동 데이터 로드 완료 (정적 데이터)');
+  1643	    
+  1644	    if (navLinks.length > 0) {
+  1645	        navLinks[0].classList.add('active');
+  1646	    }
+  1647	});
+  1648	    </script>
+  1649	</body>
+  1650	</html>
+  1651	
